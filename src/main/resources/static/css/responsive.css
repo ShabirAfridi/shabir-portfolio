@@ -1,0 +1,61 @@
+/*
+ * responsive.css  —  Responsive layout overrides
+ * Place at: src/main/resources/static/css/responsive.css
+ *
+ * Tailwind handles most responsive utilities via classes (md:, lg:, etc.)
+ * This file contains overrides that are difficult to express inline,
+ * such as the timeline centre-line shift on larger screens.
+ */
+
+/* ═══════════════════════════════════════════════
+   TIMELINE — centres the line on md+ screens
+════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+  .timeline-line {
+    left: 50%;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════
+   HERO HEADLINE — extra size on very large screens
+════════════════════════════════════════════════ */
+@media (min-width: 1280px) {
+  #hero h1 {
+    font-size: 6.5rem;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════
+   MOBILE NAV — full-width CTA button
+════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  #mobile-menu a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Stack project cards cleanly on small screens */
+  .coming-soon-card {
+    width: 100%;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════
+   PRINT — hide nav and footer for print/PDF
+════════════════════════════════════════════════ */
+@media print {
+  nav,
+  footer,
+  #mobile-menu {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}

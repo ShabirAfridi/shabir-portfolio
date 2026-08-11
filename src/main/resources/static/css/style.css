@@ -1,0 +1,196 @@
+/*
+ * style.css  —  Main custom styles for Shabir Ahmad Portfolio
+ * Place at: src/main/resources/static/css/style.css
+ *
+ * This file contains all custom CSS that lives outside Tailwind utilities:
+ * scroll-reveal animations, mobile menu transitions, glow effects,
+ * card hover states, timeline layout, and smooth scroll.
+ */
+
+/* ═══════════════════════════════════════════════
+   BASE
+════════════════════════════════════════════════ */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0c0e12;
+  color: #f6f6fc;
+}
+
+.font-headline {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+   Elements start hidden (opacity:0, shifted down).
+   JavaScript (theme.js) adds .visible via IntersectionObserver.
+════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity   0.7s cubic-bezier(.22, 1, .36, 1),
+    transform 0.7s cubic-bezier(.22, 1, .36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for child elements */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+
+/* ═══════════════════════════════════════════════
+   MOBILE MENU
+════════════════════════════════════════════════ */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.4s cubic-bezier(.22, 1, .36, 1),
+    opacity    0.3s ease;
+  opacity: 0;
+}
+
+#mobile-menu.open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+
+/* ═══════════════════════════════════════════════
+   GLOW EFFECTS
+════════════════════════════════════════════════ */
+.glow-primary:hover {
+  box-shadow: 0 0 20px rgba(0, 245, 212, 0.35);
+}
+
+/* Used on the "Available for hire" badge dot */
+.glow-badge {
+  box-shadow: 0 0 8px rgba(28, 237, 225, 0.5);
+}
+
+
+/* ═══════════════════════════════════════════════
+   PROJECT "COMING SOON" CARD
+════════════════════════════════════════════════ */
+.coming-soon-card {
+  background: linear-gradient(135deg, #111318 0%, #0c0e12 100%);
+  border: 1px dashed rgba(182, 255, 237, 0.2);
+  transition:
+    border-color 0.3s ease,
+    box-shadow   0.3s ease;
+}
+
+.coming-soon-card:hover {
+  border-color: rgba(182, 255, 237, 0.5);
+  box-shadow: 0 0 30px rgba(182, 255, 237, 0.07);
+}
+
+
+/* ═══════════════════════════════════════════════
+   CODE PLACEHOLDER BACKGROUND
+   Faint horizontal rule lines simulating a code editor
+════════════════════════════════════════════════ */
+.code-bg {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 24px,
+      rgba(182, 255, 237, 0.03) 24px,
+      rgba(182, 255, 237, 0.03) 25px
+    ),
+    #111318;
+}
+
+
+/* ═══════════════════════════════════════════════
+   NAV LINK — animated underline on hover
+════════════════════════════════════════════════ */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #b6ffed;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* ═══════════════════════════════════════════════
+   TIMELINE VERTICAL LINE
+   The thin gradient line connecting education dots.
+════════════════════════════════════════════════ */
+.timeline-line {
+  position: absolute;
+  left: 17px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(70, 72, 77, 0.4),
+    transparent
+  );
+}
+
+
+/* ═══════════════════════════════════════════════
+   CONTACT CARD HOVER EFFECT
+   Radial gradient glow appears on hover with lift
+════════════════════════════════════════════════ */
+.contact-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(182, 255, 237, 0.06) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+.contact-card:hover {
+  border-color: rgba(182, 255, 237, 0.3) !important;
+  transform: translateY(-3px);
+}

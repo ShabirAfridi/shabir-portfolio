@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="dark" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shabir Ahmad | Backend Developer</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind Config (custom design tokens) -->
+  <script th:src="@{/js/tailwind-config.js}"></script>
+
+  <!-- Custom CSS -->
+  <link th:href="@{/css/style.css}" rel="stylesheet"/>
+  <link th:href="@{/css/responsive.css}" rel="stylesheet"/>
+</head>
+
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- ── NAVIGATION FRAGMENT ── -->
+<div th:replace="~{fragments/nav :: navigation(activePage=${activePage})}"></div>
+
+<main>
+
+<!-- ═══════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════════ -->
+<section class="min-h-screen flex flex-col justify-center px-8 md:px-24 pt-28 pb-20 relative overflow-hidden" id="hero">
+
+  <!-- Background glow blobs -->
+  <div class="absolute top-1/3 -right-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-0 -left-1/4 w-[400px] h-[400px] bg-secondary/4 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-4xl relative z-10">
+
+    <!-- Status badge -->
+    <div class="reveal inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container-high rounded-full mb-8 border border-outline-variant/20">
+      <span class="w-2 h-2 rounded-full bg-secondary animate-pulse glow-badge"></span>
+      <span class="text-[10px] font-headline font-bold tracking-[0.2em] uppercase text-secondary">Available for hire</span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="reveal reveal-delay-1 text-5xl md:text-8xl font-headline font-bold text-on-surface leading-tight mb-6 tracking-tighter">
+      Building <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">Scalable</span><br/>Backend Systems.
+    </h1>
+
+    <!-- Sub text -->
+    <p class="reveal reveal-delay-2 text-lg md:text-xl text-on-surface-variant font-body max-w-2xl mb-12 leading-relaxed">
+      Computer Science student specializing in <span class="text-on-surface font-medium">Java &amp; Spring Boot</span>.
+      I design and build clean REST APIs, database-driven applications, and backend architectures.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="reveal reveal-delay-3 flex flex-wrap gap-4 mb-20">
+      <a th:href="@{/services}"
+         class="bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed px-8 py-4 rounded-xl font-headline font-bold text-base active:scale-95 hover:shadow-[0_0_25px_rgba(0,245,212,0.3)] transition-all duration-300">
+        View Projects
+      </a>
+      <a th:href="@{/contact}"
+         class="border border-outline-variant/30 text-on-surface px-8 py-4 rounded-xl font-headline font-bold text-base hover:bg-surface-container-high hover:border-primary/30 transition-all duration-300">
+        Get In Touch
+      </a>
+    </div>
+
+    <!-- Stats row -->
+    <div class="reveal reveal-delay-4 grid grid-cols-3 gap-8 border-t border-outline-variant/20 pt-12">
+      <div>
+        <div class="text-3xl md:text-4xl font-headline font-black text-primary mb-1">7th</div>
+        <div class="text-[10px] font-headline uppercase tracking-widest text-on-surface-variant">Semester BCS</div>
+      </div>
+      <div>
+        <div class="text-3xl md:text-4xl font-headline font-black text-primary mb-1">3+</div>
+        <div class="text-[10px] font-headline uppercase tracking-widest text-on-surface-variant">Core Tech Stacks</div>
+      </div>
+      <div>
+        <div class="text-3xl md:text-4xl font-headline font-black text-primary mb-1">&infin;</div>
+        <div class="text-[10px] font-headline uppercase tracking-widest text-on-surface-variant">Lines of Code</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ── FOOTER FRAGMENT ── -->
+<div th:replace="~{fragments/footer :: siteFooter}"></div>
+
+<!-- Custom JS (animations + mobile menu) -->
+<script th:src="@{/js/theme.js}"></script>
+</body>
+</html>

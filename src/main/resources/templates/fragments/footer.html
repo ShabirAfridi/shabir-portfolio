@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--
+  Fragment: footer
+  Usage in any page:
+    <div th:replace="~{fragments/footer :: siteFooter}"></div>
+-->
+<footer th:fragment="siteFooter"
+        class="bg-surface-container-lowest w-full py-10 border-t border-outline-variant/15">
+  <div class="max-w-screen-xl mx-auto px-8 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+
+    <div>
+      <span class="font-headline font-black text-primary text-lg">
+        SHABIR<span class="text-on-surface">.DEV</span>
+      </span>
+      <p class="font-body text-[10px] tracking-wider uppercase text-outline mt-1">
+        &copy; 2025 Shabir Ahmad &middot; Built with precision.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-6">
+      <a th:href="@{/about}"    class="font-body text-[10px] tracking-widest uppercase text-outline hover:text-on-surface transition-colors duration-200">About</a>
+      <a th:href="@{/about}"    class="font-body text-[10px] tracking-widest uppercase text-outline hover:text-on-surface transition-colors duration-200">Skills</a>
+      <a th:href="@{/services}" class="font-body text-[10px] tracking-widest uppercase text-outline hover:text-on-surface transition-colors duration-200">Projects</a>
+      <a th:href="@{/contact}"  class="font-body text-[10px] tracking-widest uppercase text-outline hover:text-on-surface transition-colors duration-200">Contact</a>
+      <a href="mailto:shabirofridi@gmail.com"
+         class="font-body text-[10px] tracking-widest uppercase text-outline hover:text-primary transition-colors duration-200">
+        Email
+      </a>
+      <a th:href="@{/}"
+         class="text-primary font-body text-[10px] tracking-widest uppercase flex items-center gap-1 hover:text-on-surface transition-colors duration-200">
+        Top <span class="material-symbols-outlined" style="font-size:12px;">arrow_upward</span>
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+</html>

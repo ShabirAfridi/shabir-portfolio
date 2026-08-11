@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="dark" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Shabir Ahmad</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script th:src="@{/js/tailwind-config.js}"></script>
+  <link th:href="@{/css/style.css}" rel="stylesheet"/>
+  <link th:href="@{/css/responsive.css}" rel="stylesheet"/>
+</head>
+
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- ── NAVIGATION FRAGMENT ── -->
+<div th:replace="~{fragments/nav :: navigation(activePage=${activePage})}"></div>
+
+<main class="pt-24">
+
+<!-- ═══════════════════════════════════════════════
+     PROJECTS SECTION
+════════════════════════════════════════════════ -->
+<section class="py-28 px-8 md:px-24 bg-surface-container-low" id="projects">
+  <div class="max-w-screen-xl mx-auto">
+
+    <!-- Section header -->
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+      <div>
+        <span class="reveal text-primary font-headline font-bold tracking-widest uppercase text-xs mb-4 block">Selected Works</span>
+        <h2 class="reveal reveal-delay-1 text-4xl md:text-6xl font-headline font-bold text-on-surface leading-tight tracking-tighter">
+          Architectural<br/>Solutions.
+        </h2>
+      </div>
+      <p class="reveal reveal-delay-2 text-on-surface-variant font-body text-sm max-w-xs text-right">
+        Projects currently in development. Check back soon or follow on GitHub.
+      </p>
+    </div>
+
+    <!-- Coming Soon Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Coming Soon Card 1 — Spring Boot REST API -->
+      <div class="reveal reveal-delay-1 coming-soon-card rounded-xl p-8 group">
+
+        <!-- Code placeholder visual -->
+        <div class="code-bg rounded-lg h-48 mb-8 flex flex-col justify-center items-center relative overflow-hidden">
+          <div class="absolute inset-0 flex flex-col justify-center px-6 opacity-30 font-mono text-xs text-primary space-y-2">
+            <div><span class="text-secondary">@RestController</span></div>
+            <div><span class="text-on-surface-variant">public class</span> <span class="text-primary">ProjectController</span> <span class="text-on-surface-variant">{}</span></div>
+            <div class="pl-4"><span class="text-secondary">@GetMapping</span><span class="text-on-surface-variant">("/api/projects")</span></div>
+            <div class="pl-4"><span class="text-on-surface-variant">public</span> <span class="text-tertiary">List</span><span class="text-on-surface-variant">&lt;Project&gt; getAll()</span> <span class="text-on-surface-variant">{}</span></div>
+          </div>
+          <div class="relative z-10 text-center">
+            <span class="material-symbols-outlined text-5xl text-primary/40 block mb-3">pending</span>
+            <span class="font-headline text-xs uppercase tracking-widest text-on-surface-variant">Building Soon</span>
+          </div>
+        </div>
+
+        <div class="flex gap-2 mb-4">
+          <span class="text-secondary text-[10px] font-headline font-bold tracking-widest uppercase py-1 px-2 bg-secondary/10 rounded">Spring Boot</span>
+          <span class="text-secondary text-[10px] font-headline font-bold tracking-widest uppercase py-1 px-2 bg-secondary/10 rounded">Java</span>
+          <span class="text-secondary text-[10px] font-headline font-bold tracking-widest uppercase py-1 px-2 bg-secondary/10 rounded">PostgreSQL</span>
+        </div>
+        <h3 class="text-xl font-headline font-bold text-on-surface mb-2">Project Coming Soon</h3>
+        <p class="text-on-surface-variant font-body text-sm leading-relaxed">
+          Currently designing and building a Spring Boot backend project. Details and source code will be published here once complete.
+        </p>
+        <div class="flex gap-4 pt-6">
+          <span class="text-on-surface-variant/40 font-headline text-xs uppercase tracking-widest">In Progress...</span>
+        </div>
+      </div>
+
+      <!-- Coming Soon Card 2 — Hibernate/JPA Entity -->
+      <div class="reveal reveal-delay-2 coming-soon-card rounded-xl p-8 group">
+        <div class="code-bg rounded-lg h-48 mb-8 flex flex-col justify-center items-center relative overflow-hidden">
+          <div class="absolute inset-0 flex flex-col justify-center px-6 opacity-30 font-mono text-xs text-primary space-y-2">
+            <div><span class="text-secondary">@Entity</span></div>
+            <div><span class="text-on-surface-variant">public class</span> <span class="text-primary">Student</span> <span class="text-on-surface-variant">{}</span></div>
+            <div class="pl-4"><span class="text-secondary">@Id</span> <span class="text-secondary">@GeneratedValue</span></div>
+            <div class="pl-4"><span class="text-on-surface-variant">private</span> <span class="text-tertiary">Long</span> id;</div>
+            <div class="pl-4"><span class="text-on-surface-variant">private</span> <span class="text-tertiary">String</span> name;</div>
+          </div>
+          <div class="relative z-10 text-center">
+            <span class="material-symbols-outlined text-5xl text-primary/40 block mb-3">construction</span>
+            <span class="font-headline text-xs uppercase tracking-widest text-on-surface-variant">Under Construction</span>
+          </div>
+        </div>
+
+        <div class="flex gap-2 mb-4">
+          <span class="text-secondary text-[10px] font-headline font-bold tracking-widest uppercase py-1 px-2 bg-secondary/10 rounded">Hibernate</span>
+          <span class="text-secondary text-[10px] font-headline font-bold tracking-widest uppercase py-1 px-2 bg-secondary/10 rounded">JPA</span>
+          <span class="text-secondary text-[10px] font-headline font-bold tracking-widest uppercase py-1 px-2 bg-secondary/10 rounded">REST API</span>
+        </div>
+        <h3 class="text-xl font-headline font-bold text-on-surface mb-2">Project Coming Soon</h3>
+        <p class="text-on-surface-variant font-body text-sm leading-relaxed">
+          A data-driven backend application currently being architected. Will feature full REST API design, JPA entity mapping, and database integration.
+        </p>
+        <div class="flex gap-4 pt-6">
+          <span class="text-on-surface-variant/40 font-headline text-xs uppercase tracking-widest">In Progress...</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GitHub CTA -->
+    <div class="reveal mt-12 text-center">
+      <p class="text-on-surface-variant text-sm font-body mb-4">More projects coming as I complete them during my degree.</p>
+      <a th:href="@{/contact}"
+         class="inline-flex items-center gap-2 border border-outline-variant/30 hover:border-primary/40 text-on-surface-variant hover:text-primary px-6 py-3 rounded-xl font-headline font-bold text-xs uppercase tracking-widest transition-all duration-300">
+        <span class="material-symbols-outlined text-sm">notifications</span>
+        Get Notified When Ready
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ── FOOTER FRAGMENT ── -->
+<div th:replace="~{fragments/footer :: siteFooter}"></div>
+
+<script th:src="@{/js/theme.js}"></script>
+</body>
+</html>
